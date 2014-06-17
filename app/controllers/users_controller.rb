@@ -61,6 +61,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def current
+    if current_user.blank?
+      head 401
+      return
+    end
+
+    respond_to do |format|
+      format.json { render json: { current_users: current_user } }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
