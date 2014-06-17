@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require lib/index
+//= require ember/index
 //= require_tree .
