@@ -17,16 +17,29 @@
 	{{outlet}}
 </script>
 <script type="text/x-handlebars" data-template-name="login">
-	<form>
+	<div>
 		<label for="email">Email:
-			<input type="text" id="email" name="email" placeholder="input you email here">
+			{{input id="email" name="email" action="checkEnter" value=email placeholder="input you email here"}}
+			<span>
+				{{#if emailErr}}
+				  email formate error!
+				{{/if}}
+			</span>
+			<br>
 		</lable>
 		<label>Password:
-			<input type="text" id="password" name="password" placeholder="input you email here">
+			{{input id="password" type="password" action="checkEnter" name="password" value=password placeholder="input you email here"}}
+			<span>
+				{{#if passwordErr}}
+				  password formate error!
+				{{/if}}
+			</span>
+			<br>
 		</label>
+		<button {{action checkEnter}}>Submit</button>
 		<div>
 			Do not have a account yet?
 			<button>Register</button>
 		</div>
-	</form>
+	</div>
 </script>
