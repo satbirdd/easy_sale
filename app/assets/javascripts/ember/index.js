@@ -1,5 +1,0 @@
-//= require 'ember/application'
-//= require 'ember/views/click'
-//= require 'ember/models/index'
-//= require 'ember/controllers/index'
-//= require 'ember/routes/index'

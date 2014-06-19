@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require lib/index
-//= require ember/index
+//= require ember/application
 //= require_tree .
+

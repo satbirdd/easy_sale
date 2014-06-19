@@ -6,6 +6,7 @@ App.ApplicationRoute = Em.Route.extend({
 
 	setupController: function(controller, model) {
 		var metaData = window.MetaData;
+		console.log(metaData);
 		if (metaData && metaData.isAuthed) {
 			var currentUser = {
 				isAuthed: true,

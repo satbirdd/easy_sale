@@ -1,21 +1,22 @@
 <script type="text/javascript">
 	window.MetaData = {
 		isAuthed: <%= "#{!current_user.blank?}" %>,
-		email: <%= current_user ? current_user.email : "null" %>
+		email: <%= current_user ? "'#{current_user.email}'".html_safe : "null" %>
 	}
 </script>
+
 <script type="text/x-handlebars">
+	<head>
   {{#if currentUser}}
   	{{currentUser.email}}
   {{else}}
-  	signin || login
+		{{#link-to 'login'}}
+			login
+		{{/link-to}}
   {{/if}}
-	{{#link-to 'login'}}
-		login
-	{{/link-to}}
-
 	{{outlet}}
 </script>
+
 <script type="text/x-handlebars" data-template-name="login">
 	<div>
 		<label for="email">Email:
