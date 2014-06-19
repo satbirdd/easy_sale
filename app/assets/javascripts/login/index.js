@@ -20,8 +20,8 @@ Login.ApplicationController = Em.Controller.extend({
 		checkEnter: function() {
 			var email = this.get('email')
 			  , password = this.get('password')
-			  , emailErr = validateEmail(email)
-			  , passwordErr = validatePassword(password);
+			  , emailErr = !validateEmail(email)
+			  , passwordErr = !validatePassword(password);
 
 			this.set('emailErr', emailErr);
 			this.set('passwordErr', passwordErr);
@@ -31,9 +31,10 @@ Login.ApplicationController = Em.Controller.extend({
 })
 
 function validateEmail(email) {
-	return (null != email && email.length < 6) || (null == email);
-}
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+};
 
 function validatePassword(password) {
-	return (null != password && password.length < 6) || (null == password);
-}
+	return ((null != password) && ('' != password));
+};
