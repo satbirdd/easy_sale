@@ -9,10 +9,6 @@
 	<head>
   {{#if currentUser}}
   	{{currentUser.email}}
-  {{else}}
-		{{#link-to 'login'}}
-			login
-		{{/link-to}}
   {{/if}}
 	{{outlet}}
 </script>
@@ -44,3 +40,5 @@
 		</div>
 	</div>
 </script>
+
+<%= javascript_include_tag 'ember/index' %>
