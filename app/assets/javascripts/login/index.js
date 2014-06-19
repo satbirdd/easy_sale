@@ -10,16 +10,10 @@ Login.ApplicationController = Em.Controller.extend({
 	enterAllRight: false,
 
 	enterFinish: function(argument) {
-		console.log(this.get('enterAllRight'));
-		// if(this.get('enterAllRight')) {
-		// 	var request = $.post('/users/sign_in', {
-		// 		user: {				
-		// 			email: this.get('email'),
-		// 			password: this.get('password')
-		// 		}
-		// 	});
-		// 	request.then(this.success.bind(this), this.error.bind(this));
-		// }
+		if (this.get('enterAllRight')) {
+			$('form').submit();
+		}
+		return this.get('enterAllRight');
 	}.observes('enterAllRight'),
 
 	actions: {
@@ -31,7 +25,7 @@ Login.ApplicationController = Em.Controller.extend({
 
 			this.set('emailErr', emailErr);
 			this.set('passwordErr', passwordErr);
-			this.set('enterAllRight', !emailErr || !passwordErr);
+			this.set('enterAllRight', !emailErr && !passwordErr);
 		}
 	}
 })

@@ -6,13 +6,23 @@
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	  <div>
 	  	<%= f.label :email %><br />
-	    {{input autofocus="autofocus" id="user_email" name="user[email]" type="email" value=""}}
+	    {{input autofocus="autofocus" id="user_email" action="checkEnter" 
+	      value=email name="user[email]" type="email"}}
+			<span>
+				{{#if emailErr}}
+				  email formate error!
+				{{/if}}
+			</span>
 	    
 	  </div>
 
 	  <div>
 	  	<%= f.label :password %><br />
-	  	{{input autocomplete="off" id="user_password" name="user[password]" type="password"}}
+	  	{{input autocomplete="off" id="user_password" action="checkEnter" 
+	  	  value=password name="user[password]" type="password"}}
+			{{#if passwordErr}}
+			  password formate error!
+			{{/if}}
 	   </div>
 
 	  <% if devise_mapping.rememberable? -%>
@@ -21,7 +31,9 @@
 	   	</div>
 	  <% end -%>
 
-	  <div><%= f.submit "Sign in" %></div>
+	  <div>
+	  	<input {{action checkEnter}} name="commit" type="submit" value="Sign in">
+	  </div>
 	<% end %>
 
 	<%= render "devise/shared/links" %>
