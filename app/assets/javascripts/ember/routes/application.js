@@ -4,7 +4,7 @@ App.ApplicationRoute = Em.Route.extend({
 		email: null
 	},
 
-	model: function(controller, model) {
+	setupController: function(controller, model) {
 		var metaData = window.MetaData;
 		console.log(metaData);
 		if (metaData && metaData.isAuthed) {
