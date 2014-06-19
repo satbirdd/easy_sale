@@ -6,9 +6,40 @@
 </script>
 
 <script type="text/x-handlebars">
-  {{#if currentUser}}
-  	{{currentUser.email}}
-  {{/if}}
+	<div class='head'>
+	  {{#if currentUser}}
+	  	{{currentUser.email}}
+	  {{/if}}
+	</div>
+	<div id="hdtbSum">
+		<div id="hdtb_msb">
+			<div class="hdtb_mitem hdtb_msel">Web</div>
+			<div class="hdtb_mitem">
+				<a class="q qs" href="">商品</a>
+			</div>
+			<div class="hdtb_mitem">
+				<a class="q qs" href="">销售</a>
+			</div>
+			<div class="hdtb_mitem">
+				<a class="q qs" href="">Maps</a>
+			</div>
+			<a id="hdtb_more" role="menu" tabindex="0" aria-label="More">
+				<span class="mn-hd-txt">More</span>
+				<span class="mn-dwn-arw"></span>
+			</a>
+			<div class="hdtb-mn-c" id="hdtb_more_mn" data-ved="0CAsQ2h8oBA">
+				<div class="hdtb_mitem">
+					<a class="q qs" href="">News</a>
+				</div>
+				<div class="hdtb_mitem">
+					<a class="q qs" href="">Books</a>
+				</div>
+				<div class="hdtb_mitem">
+					<a class="q qs" href="">Apps</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	{{outlet}}
 </script>
 
