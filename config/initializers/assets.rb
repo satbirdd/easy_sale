@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( ember/index.js )
+Rails.application.config.assets.precompile += %w( ember/index.js login/index.js )
